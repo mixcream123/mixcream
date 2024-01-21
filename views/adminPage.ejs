@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        #homepageAdmin {
+            background-color: #f5f5f5;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .table-wrapper {
+            min-width: 1000px;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+        }
+
+
+        #choose_all,
+        .choose_item {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        #chooseCheckBox {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+
+        .container-xl {
+            position: relative;
+        }
+
+        #pagination_page {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        body {
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloader"></div>
+    <div id="homepageAdmin">
+        <div class="container-xl">
+            <div class="table-responsive rounded" style="    width: 1475px;">
+                <div class="table-wrapper" style="height:630px; overflow:hidden; overflow-y: scroll;">
+                    <div class="table-title">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h2><b>BẢNG MÃ ĐƠN HÀNG</b></h2>
+                                <h2 class="text-primary">(<%=sum_order%> đơn hàng)
+                                </h2>
+
+
+                            </div>
+
+
+                            <div class="col-sm-2">
+                                <button type="button" class="btn btn-primary" id="btn_reload">Reload <i class="fa-sharp fa-solid fa-arrow-rotate-left"></i></button>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <a href="/admin/addMDH" style="text-decoration:none;">
+                                    <button type="button" class="btn btn-success">Thêm <i class="fa-solid fa-plus"></i></button>
+                                </a>
+
+                            </div>
+
+
+
+                            <div class="col-sm-4">
+                                <div class="search-box">
+                                    <form action="/admin/searchMDH" method="POST" id="form_search" class="d-flex">
+                                        <input type="text" class="form-control" placeholder="Nhập vào mã đơn hàng cần tìm..." name="info_search">
+                                        <br>
+                                        <button type="submit" class="btn btn btn-info" id="btn_search">Tìm <i class="fa-solid fa-magnifying-glass"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <a href="/admin/logout" style="text-decoration:none;">
+                                    <button type="button" class="btn btn-dark">Đăng Xuất &nbsp;<i class="fa-solid fa-right-from-bracket"></i></button>
+                                </a>
+
+                            </div>
+                        </div>
+                        <p class="font-italic" style="opacity: 0.7;">(Cần reload lại trang sau khi thực hiện các tác vụ)</p>
+                    </div>
+                    <br>
+
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr class="text-center">
+                                <th style="width:6%;">
+                                    <input type="checkbox" id="choose_all">
+
+                                </th>
+                                <th>#</th>
+                                <th>Mã đơn hàng</th>
+                                <th style="width:30%;">Tên sản phẩm</th>
+                                <th>Ngày tạo</th>
+                                <th>Ngày cập nhật</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if(typeof(pagination_array) !='undefined' ){ for(let i=0; i < pagination_array.length; i++){ let stt=i+1; %>
+                                <tr class="text-center">
+                                    <td>
+                                        <input type="checkbox" class="choose_item" data-index="<%= pagination_array[i]._id %>">
+                                    </td>
+                                    <td>
+                                        <%= stt %>
+                                    </td>
+                                    <td>
+                                        <%= pagination_array[i].tenmadonhang%>
+                                    </td>
+                                    <td>
+                                        <%= pagination_array[i].nameproduct %>
+                                    </td>
+                                    <td class="ngaytao">
+                                        <%= pagination_array[i].createdAt%>
+                                    </td>
+                                    <td class="ngaycapnhat">
+                                        <%= pagination_array[i].updatedAt%>
+                                    </td>
+                                    <td>
+
+                                        <a href="/admin/editMDH/<%= pagination_array[i]._id %>" style="text-decoration:none;">
+                                            <button type="button" class="btn btn-primary">Sửa <i class="fa-solid fa-pen-to-square"></i></button>
+                                        </a>
+                                        &nbsp;&nbsp;
+
+                                        <!-- Button trigger modal -->
+                                        <a href="/admin/deleteMDH/<%= pagination_array[i]._id %>" style="text-decoration:none;" class="btn_delete">
+                                            <button type="button" class="btn btn-danger">Xóa <i class="fa-sharp fa-solid fa-trash"></i></button>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                                <% }}%>
+                        </tbody>
+                    </table>
+
+
+
+                    <% if(typeof(error) !='undefined' ){%>
+                        <div class="font-italic font-weight-bold text-danger text-center">
+                            <%= error%>
+                        </div>
+                        <% }%>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- //Form send array to Page Delete All Product -->
+    <form action="/admin/deleteAllMDH/" method="POST" id="formSubmit">
+        <input type="text" name="arrayMDH" id="array_MDH">
+        <button type="submit" id="btn_submit">Submit form</button>
+    </form>
+
+
+    <!-- //Xóa sản phẩm theo cách chọn checkbox -->
+    <div id="chooseCheckBox" style="display:flex;">
+        <button type="button" class="btn btn-primary" style="color:white;display:flex;align-items: center;justify-content: center;margin-right: 20px;">
+            <p>Đã chọn &nbsp;
+            <h2 id="count_product" style="color:white;font-weight: bold;">0</h2>
+            &nbsp;
+            sản phẩm
+            </p>
+        </button>
+
+        <button type="button" class="btn btn-danger" id="btnAllProduct">Xóa <i class="fa-sharp fa-solid fa-trash"></i></button>
+
+    </div>
+
+    <!-- Pagination -->
+    <div id="pagination_page">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <% if(typeof(sum_page) !=="undefined" ) {for(let i=1;i<=sum_page;i++){%>
+                    <li class="page-item" id="pagination_transfer"><a class="page-link" href="<%= i%>">
+                            <%= i%>
+                        </a></li>
+                    <% }}%>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+            </ul>
+        </nav>
+    </div>
+
+</body>
+<script>
+    document.querySelector('#btn_reload').addEventListener('click', () => {
+        window.location.reload();
+    })
+
+    document.querySelectorAll('.btn_delete').forEach((item, index) => {
+        item.addEventListener('click', (e) => {
+            alert('Đã xóa mã đơn hàng ! Reload lại page để cập nhật...');
+        })
+    })
+
+    window.onload = () => {
+        let ngaytao = document.querySelectorAll(".ngaytao");
+        ngaytao.forEach((item, index) => {
+            let chuoi = item.innerText;
+            let ngaytao_split = chuoi.substring(0, chuoi.search("GMT") - 1)
+            item.innerText = ngaytao_split;
+            // document.querySelector('#ngaytao').innerText = ngaytao;
+
+        })
+
+        let ngaycapnhat = document.querySelectorAll(".ngaycapnhat");
+        ngaycapnhat.forEach((item, index) => {
+            let chuoi = item.innerText;
+            let ngaycapnhat_split = chuoi.substring(0, chuoi.search("GMT") - 1)
+            item.innerText = ngaycapnhat_split;
+            // document.querySelector('#ngaytao').innerText = ngaytao;
+
+        })
+    }
+
+
+
+    var loader = document.getElementById("preloader");
+    window.addEventListener("load", function () {
+        loader.style.display = "none";
+    })
+
+
+    //Checkbox delete
+    let chooseAllBtn = document.querySelector("#choose_all");
+    let chooseItemAll = document.querySelectorAll(".choose_item");
+
+
+    var array_chooseItem = [];
+
+
+    chooseAllBtn.addEventListener("click", () => {
+        if (chooseAllBtn.checked == true) {
+            chooseItemAll.forEach((item, index) => {
+                item.checked = true;
+                let array_temp = [];
+                chooseItemAll.forEach((item, index) => {
+                    array_temp.push(item);
+                })
+                array_chooseItem = array_temp;
+                document.getElementById("count_product").innerText = array_chooseItem.length;
+            })
+        } else {
+            chooseItemAll.forEach((item, index) => {
+                item.checked = false;
+                array_chooseItem = [];
+                document.getElementById("count_product").innerText = array_chooseItem.length;
+            })
+        }
+    })
+
+
+    //Khi click chon 1 item bất kì
+    chooseItemAll.forEach((item, index) => {
+        item.addEventListener('click', (e) => {
+            if (e.target.checked == true) {
+                let id_product = e.target.dataset.index;
+                array_chooseItem.push(id_product);
+            } else {
+                let id_product = e.target.dataset.index;
+                let index_remember = '';
+                array_chooseItem.forEach((item, index) => {
+                    if (item == id_product) {
+                        index_remember = index;
+                    }
+                })
+
+                //Xóa phần tử
+                array_chooseItem.splice(index_remember, 1);
+            }
+            //Set giá trị cho render data
+            document.getElementById("count_product").innerText = array_chooseItem.length;
+        })
+    })
+
+
+    document.querySelector("#btnAllProduct").addEventListener("click", () => {
+        if (document.getElementById("count_product").innerText == '0') {
+            alert('Bạn chưa chọn sản phẩm nào cần xóa !');
+        } else {
+            let auth = confirm("Bạn có chắc chắn muốn xóa ?");
+            if (auth) {
+                document.getElementById("array_MDH").value = JSON.stringify(array_chooseItem);
+                document.getElementById("btn_submit").click();
+            }
+        }
+    })
+
+
+    document.getElementById("pagination_transfer").addEventListener("click",()=>{
+        window.location.reload();
+    })
+
+
+
+</script>
+
+</html>
