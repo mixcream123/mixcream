@@ -30,28 +30,37 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Su dung Static File
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public", {
+     etag: true, // Just being explicit about the default.
+  lastModified: true,  // Just being explicit about the default.
+  setHeaders: (res, path) => {
+    if (path.endsWith('.html')) {
+      // All of the project's HTML files end in .html
+      res.setHeader('Cache-Control', 'max-age=31536000');
+    }
+  },
+}));
 
 
 
 
 //Connect to MongoDB Atlas
-// mongoose
-//   .connect(
-//     "mongodb+srv://sharecodeitk45:roBBhoRsiEy2crjF@cluster0-kemtron.af3egxh.mongodb.net/CheckKemTron?retryWrites=true&w=majority"
-//   )
-//   .then(() => console.log("Ket nối DB thành công"))
-//   .catch(() => console.log("Kết nối DB thất bại"));
-
-// Connect to the DB Compass
 mongoose
-  .connect(process.env.DB_URL)
-  .then(() => {
-    console.log("Ket noi DB thanh cong !");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+  .connect(
+    "mongodb+srv://sharecodeitk45:roBBhoRsiEy2crjF@cluster0-kemtron.af3egxh.mongodb.net/CheckKemTron?retryWrites=true&w=majority"
+  )
+  .then(() => console.log("Ket nối DB thành công"))
+  .catch(() => console.log("Kết nối DB thất bại"));
+
+// // Connect to the DB Compass
+// mongoose
+//   .connect(process.env.DB_URL)
+//   .then(() => {
+//     console.log("Ket noi DB thanh cong !");
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 
 app.use(
@@ -66,13 +75,19 @@ app.use(
 //middleware Router
 //Client
 app.use("/", routerClient);
-//Server
+
+
+// //Server Admin Page
 app.use("/admin", routerAdmin);
 
 // Vao 1 trang khong ton tai
 app.get("*", (req, res) => {
   res.render("404page");
 });
+
+// app.get("/", (req,res)=>{
+//     res.render("homePage")
+// })
 
 //start server
 app.listen(process.env.PORT, () => {
