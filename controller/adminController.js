@@ -5,7 +5,7 @@ var session = require("express-session");
 
 module.exports = class APIAdmin {
   static async loginPageAdmin(req, res) {
-    const username_input = req.body.username;
+     const username_input = req.body.username;
     const password_input = req.body.password;
 
     //Get data from DB mongoDB
@@ -65,7 +65,7 @@ module.exports = class APIAdmin {
       const listMDH = await modelmaDH.find();
 
       //Thiết lập số sản phẩm trên trang là 100
-      let orderonPage = 10;
+      let orderonPage = 100;
       //Tổng số đơn hàng
       let sum_order = listMDH.length;
       //Số trang (số sản phẩm trên trang: 100SP/trang)
@@ -81,8 +81,7 @@ module.exports = class APIAdmin {
       res.redirect("login");
     }
   }
-
-
+  
   static async editMDH(req, res) {
     const id = req.params.id;
 
@@ -94,8 +93,9 @@ module.exports = class APIAdmin {
     }
   }
 
+
   static async updateMDH(req, res) {
-    var maDH_input = await req.body.maDH;
+  var maDH_input = await req.body.maDH;
     var tenDH_input = await req.body.tenDH;
     var id_input_new = await req.body.ID_hidden;
 
@@ -111,7 +111,7 @@ module.exports = class APIAdmin {
         }
       );
 
-      res.status(301).redirect("./homepageAdmin/100");
+      res.status(301).redirect("./homepageAdmin/1");
     } catch (err) {
       res.status(501).json(err);
     }
@@ -123,11 +123,12 @@ module.exports = class APIAdmin {
       if (err) {
         res.json({ message: err.message });
       } else {
-        res.redirect("/admin/homepageAdmin/100");
+        res.redirect("/admin/homepageAdmin/1");
       }
     });
   }
-
+  
+  
   static async deleteAllMDH(req, res){
     const arrayMDH = await req.body.arrayMDH;
     
@@ -144,7 +145,7 @@ module.exports = class APIAdmin {
       });
     })
 
-    res.redirect("/admin/homepageAdmin/100");
+    res.redirect("/admin/homepageAdmin/1");
 
 
   

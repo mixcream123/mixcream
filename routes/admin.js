@@ -54,7 +54,7 @@ router.post("/searchMDH", adminControll.searchMDH);
 
 // //Thực hiện upload mã đơn hàng với file PDF
 //Dạng 1.File Tiktok
-router.get("/addMDH_type1", upload.single("formFile"), (req, res) => {
+router.post("/addMDH_type1", upload.single("formFile"), (req, res) => {
   //nhận dữ liệu từ form
   const file = req.file;
 
@@ -71,9 +71,9 @@ router.get("/addMDH_type1", upload.single("formFile"), (req, res) => {
   const pdf = require("pdf-parse");
   let nameFile = req.body.formFile;
   // Xu li upload file
-  let dataBuffer = fs.readFileSync(`./uploads/testagain.PDF`);
+  let dataBuffer = fs.readFileSync(`./uploads/${file.filename}`);
   pdf(dataBuffer).then(function (data) {
-    let array = data.text.split(",");
+     let array = data.text.split(",");
 
     let array_change = [];
     let array_result = [];
@@ -370,6 +370,7 @@ router.get("/addMDH_type1", upload.single("formFile"), (req, res) => {
 
 
 
+
   });
 });
 
@@ -473,7 +474,7 @@ router.post("/adminMDH_type2", upload.single("formFile"), (req, res) => {
           resultchangeName = "ÁO Ủ KEM DÀY DẶN";
           break;
         } else if (splitkeyword == "TN350") {
-          resultchangeName = "KEM BODY CỐT Ủ - 350GR DƯỠNG BODY LÀM ĐẸP DA";
+          resultchangeName = "KEM BODY CỐT Ủ - 350GR";
           break;
         } else if (splitkeyword == "TNM") {
           resultchangeName = "MUỐI TẮM COM BÒ";

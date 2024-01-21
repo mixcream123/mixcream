@@ -24,10 +24,18 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js"
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js"
         integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="/style.css">
     <style>
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+     
+        
+        #result{
+            font-family: "Dancing+Script" !important;
+        }
+        
         #navbarNavAltMarkup a {
             margin-right: 50px;
             color: black;
@@ -39,11 +47,11 @@
 
 
 
-
+       
 
         @media only screen and (max-width: 600px) {
-
-            #reader {
+            
+              #reader {
                 width: 340px;
             }
 
@@ -51,28 +59,28 @@
                 text-align: center;
                 font-size: 1.5rem;
             }
-
+            
             html {
                 overflow-x: hidden;
             }
 
 
-            #navbarNavAltMarkup a {
+                #navbarNavAltMarkup a {
                 margin-right: 0;
                 height: 82px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
-
-
+            
+            
 
             .navbar-nav {
-                background-color: white;
-                border: 0.5px solid #ccc;
-                text-align: center;
-                margin-left: 35px;
-            }
+    background-color: white;
+    border: 0.5px solid #ccc;
+    text-align: center;
+    margin-left: 35px;
+}
 
 
             #navbar_service {
@@ -108,10 +116,9 @@
             }
 
 
-            #content {
-                margin-top: 53% !important;
-            }
-
+#content{
+    margin-top: 53% !important;
+}
             #navbar_service {
                 border: 0px;
             }
@@ -185,37 +192,36 @@
                 width: 30px;
                 height: 30px;
             }
-
-            #form_check {
+            
+            #form_check{
                 width: 92% !important;
-
+                
             }
 
             #footer {
-                height: 36vh !important;
-                margin-top: 58%;
+                   height: 36vh !important;
+    margin-top: 58%;
             }
 
             #icon_change {
                 margin-left: 231px !important;
                 margin-top: -209px !important;
             }
-
-            .mb-5,
-            .my-5 {
-                margin-bottom: 2rem !important;
+            
+            .mb-5, .my-5{
+                margin-bottom: 2rem!important;
             }
-
-
-            .navbar-toggler {
+            
+            
+            .navbar-toggler{
                 width: 65px !important;
             }
-
-            #top_navigation {
-                height: 61px !important;
+            
+            #top_navigation{
+                height:61px !important;
             }
-
-
+            
+            
             #navbar_service>div {
                 border: 1px solid #ccc;
                 margin-bottom: 5px;
@@ -229,28 +235,27 @@
                 align-items: center;
                 justify-content: center;
                 align-items: center !important;
-            }
-
-
+                    }
+                    
+                    
         }
-
-        @media only screen and (width:360px) and (height: 740px) {
+        
+         @media only screen and (width:360px) and (height: 740px){
             #footer {
                 height: 47vh !important;
                 margin-top: 58%;
             }
         }
-
-
-        @media only screen and (width:375px) and (height:667px) {
+        
+        
+          @media only screen and (width:375px) and (height:667px){
             #footer {
                 height: 45vh !important;
                 margin-top: 58%;
             }
         }
-
-      
-        @font-face{
+        
+          @font-face{
             font-family:"utm-androgyne";
             src:url("https://candyfonts.com/wp-data/2018/10/26/11237/UTM Androgyne.ttf") format("woff"),
             url("https://candyfonts.com/wp-data/2018/10/26/11237/UTM Androgyne.ttf") format("opentype"),
@@ -263,8 +268,8 @@
             text-transform:none;
             color:#F32951
         }
+        
     </style>
-
 </head>
 
 <body>
@@ -301,12 +306,12 @@
             <form action="/check" method="POST" style="width:70%;" class="text-center d-flex" id="form_check">
                 <input type="text" class="form-control" placeholder="Vui lòng nhập vào mã vận đơn" aria-label="Username" aria-describedby="basic-addon1" name="tenmadonhang" id="input_code"
                     minlength="12" maxlength="12" required>
-                <button type="button" id="btn_scanQRcode" class="btn btn-info" style="width:100px;">&nbsp; <i class="fa-solid fa-camera" id="checkQRicon"></i> </button>
+              <button type="button" id="btn_scanQRcode" class="btn btn-info" style="width:100px;margin-right:5px">&nbsp; <i class="fa-solid fa-camera" id="checkQRicon"></i> </button>
                 <button type="submit" class="btn btn-success shake-rotate">Kiểm tra</button>
             </form>
-
-
-            <img src="image/huongdan.jpg" class="img-fluid mt-2" alt="Responsive image">
+            
+            
+        <img src="image/huongdan.jpg" class="img-fluid mt-4" alt="Responsive image">
 
             <% if(typeof(message_fail) !='undefined' ) {%>
                 <div id="result" class="mt-5" style="border:1px solid #ccc;padding:15px;border-radius: 10px;">
@@ -332,9 +337,9 @@
                 </div>
         </div>
     </div>
-
-
-
+    
+    
+    
     <div id="space_qr_check" class="container" style="display:none;">
         <!-- Check with QR CODE -->
         <div id="reader" class="container"></div>
@@ -342,7 +347,7 @@
     </div>
 
 
-    <div id="footer" style="background-color: #ffeded;padding: 50px;" class="container">
+  <div id="footer" style="background-color: #ffeded;padding: 50px;" class="container">
         <div class="container d-flex justify-content-between">
             <div class="row">
                 <div class="col col-sm">
@@ -373,10 +378,10 @@
                             </a>
                         </div>
                         <div class="col mb-5 font-weight-bold">
-                            <a href="https://zalo.me/0913822841" style="text-decoration:none;">
-                                <img src="image/zalo.png" alt="..." width="50px" height="50px" class="img_icon">
+                             <a href="https://zalo.me/0913822841" style="text-decoration:none;">
+                                 <img src="image/zalo.png" alt="..." width="50px" height="50px" class="img_icon">
                             </a>
-
+                           
                         </div>
                     </div>
 
@@ -386,19 +391,19 @@
 
         </div>
     </div>
-    <script>
+     <script>
 
 
 
         var loader = document.getElementById("preloader");
         window.addEventListener("load", function () {
             loader.style.display = "none";
-            setInterval(() => {
-                if(typeof(document.querySelector("#html5-qrcode-button-camera-start")) !== "null"){
+               setInterval(() => {
+                if(typeof(document.querySelector("#html5-qrcode-button-camera-start")) != 'null'){
                     document.querySelector("#html5-qrcode-button-camera-start").innerHTML = "<button class='btn btn-success shake-rotate'>Bắt đầu quét</button>"
                 }
             
-                if(typeof(document.querySelector("#html5-qrcode-button-camera-stop")) !== "null"){
+                if(typeof(document.querySelector("#html5-qrcode-button-camera-stop")) != 'null'){
                     document.querySelector("#html5-qrcode-button-camera-stop").innerHTML = "<button class='btn btn-success shake-rotate'>Dừng quét</button>"
                 }
             
@@ -440,9 +445,9 @@
         // //Btn open
         document.querySelector('#checkQRicon').addEventListener('click', () => {
             document.getElementById('space_qr_check').style.display = 'block'
-
+    
             scanner.render(success, error);
-            document.getElementById('html5-qrcode-anchor-scan-type-change').style.display = 'none'
+              document.getElementById('html5-qrcode-anchor-scan-type-change').style.display = 'none'
             // Starts scanner
         })
 

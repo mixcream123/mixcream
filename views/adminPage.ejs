@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,7 +19,7 @@
     <link rel="stylesheet" href="/style.css">
     <style>
         #homepageAdmin {
-            background-color: #f5f5f5;
+            background-color: #ffeaa7;
             width: 100vw;
             height: 100vh;
             display: flex;
@@ -45,7 +44,7 @@
 
         #chooseCheckBox {
             position: absolute;
-            top: 20px;
+            top: 6px;
             left: 30px;
         }
 
@@ -76,7 +75,7 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <h2><b>BẢNG MÃ ĐƠN HÀNG</b></h2>
-                                <h2 class="text-primary">(<%=sum_order%> đơn hàng)
+                                <h2 class="text-primary">(<%if(typeof(sum_order) !='undefined' ){%><%=sum_order%><%}%> đơn hàng)
                                 </h2>
 
 
@@ -159,13 +158,51 @@
                                     </td>
                                     <td>
 
-                                        <a href="/admin/editMDH/<%= pagination_array[i]._id %>" style="text-decoration:none;">
-                                            <button type="button" class="btn btn-primary">Sửa <i class="fa-solid fa-pen-to-square"></i></button>
+                                        <!-- Button trigger modal -->
+                                        <a href="/admin/editMDH/<%= pagination_array[i]._id %>" style="text-decoration:none;" class="btn_edit">
+                                            <button type="button" class="btn btn-primary">Sửa <i class="fa-sharp fa-solid fa-trash"></i></button>
                                         </a>
                                         &nbsp;&nbsp;
 
                                         <!-- Button trigger modal -->
                                         <a href="/admin/deleteMDH/<%= pagination_array[i]._id %>" style="text-decoration:none;" class="btn_delete">
+                                            <button type="button" class="btn btn-danger">Xóa <i class="fa-sharp fa-solid fa-trash"></i></button>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                                <% }}%>
+                                
+                              <% if(typeof(listMDH) !='undefined' ){ for(let i=0; i < listMDH.length; i++){ let stt=i+1; %>
+                                <tr class="text-center">
+                                    <td>
+                                        <input type="checkbox" class="choose_item" data-index="<%= listMDH[i]._id %>">
+                                    </td>
+                                    <td>
+                                        <%= stt %>
+                                    </td>
+                                    <td>
+                                        <%= listMDH[i].tenmadonhang%>
+                                    </td>
+                                    <td>
+                                        <%= listMDH[i].nameproduct %>
+                                    </td>
+                                    <td class="ngaytao">
+                                        <%= listMDH[i].createdAt%>
+                                    </td>
+                                    <td class="ngaycapnhat">
+                                        <%= listMDH[i].updatedAt%>
+                                    </td>
+                                    <td>
+
+                                     <!-- Button trigger modal -->
+                                        <a href="/admin/editMDH/<%=  listMDH[i]._id %>" style="text-decoration:none;" class="btn_edit">
+                                            <button type="button" class="btn btn-primary">Sửa <i class="fa-sharp fa-solid fa-trash"></i></button>
+                                        </a>
+                                        &nbsp;&nbsp;
+
+                                        <!-- Button trigger modal -->
+                                        <a href="/admin/deleteMDH/<%= listMDH[i]._id %>" style="text-decoration:none;" class="btn_delete">
                                             <button type="button" class="btn btn-danger">Xóa <i class="fa-sharp fa-solid fa-trash"></i></button>
                                         </a>
 

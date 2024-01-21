@@ -7,7 +7,7 @@ module.exports = class APIClient{
         let check_result = await modelmaDH.findOne({tenmadonhang: tenMDH});
         console.log(check_result)
         if(check_result){
-            res.render("./checkMDH", {
+             res.render("./checkMDH", {
               message_success:
                 "Cảm ơn bạn đã tin tưởng sử dụng sản phẩm của Như ! HÀNG THẬT 100% 🎉🎉🎉 ",
               info_order_id: `

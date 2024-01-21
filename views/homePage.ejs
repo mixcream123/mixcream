@@ -40,10 +40,31 @@
             html {
                 overflow-x: hidden;
             }
-
-            .card-text {
-                font-size: 15px !important;
+            
+            h5{
+                text-align:center;
             }
+
+
+            #navbarNavAltMarkup a {
+                margin-right: 0;
+                height: 82px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+             .card-text:last-child {
+                font-size: 12px !important;
+            }
+            
+            .navbar-nav {
+                background-color: white;
+                border: 0.5px solid #ccc;
+                text-align: center;
+                margin-left: 35px;
+            }
+
 
             #navbar_service {
                 flex-direction: column;
@@ -72,13 +93,9 @@
                 padding: 0;
             }
 
-            .card-text:last-child {
-                font-size: 15px !important;
-            }
-
             #content_image {
                 height: 230px !important;
-                margin-top: 35% !important;
+                margin-top: 17% !important;
             }
 
             #navbar_service {
@@ -114,6 +131,23 @@
                 width: 100%;
             }
 
+
+            #navbar_service>div {
+                border: 1px solid #ccc;
+                margin-bottom: 5px;
+                padding: 5px;
+                height: 65px;
+                border-radius: 5px;
+                width: 231px;
+                display: flex;
+                text-align: center;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                align-items: center !important;
+            }
+
+
             #bando {
                 margin-left: -50%;
                 border: none !important;
@@ -121,7 +155,8 @@
             }
 
             #btn_checkMDH {
-                width: fit-content !important;
+                width: 216.67px !important;
+                height: 50px !important;
             }
 
             #thongtin {
@@ -138,12 +173,56 @@
             }
 
             #footer {
-                height: 60vh !important;
+                height:36vh !important;
             }
 
             #icon_change {
                 margin-left: 231px !important;
-                margin-top: -218px !important;
+                margin-top: -209px !important;
+            }
+            
+            .mb-5, .my-5{
+                margin-bottom: 2rem!important;
+            }
+            
+            
+            .navbar-toggler{
+                width: 65px !important;
+            }
+            
+            #top_navigation{
+                height:61px !important;
+            }
+            
+            
+            #navbar_service>div {
+                border: 1px solid #ccc;
+                margin-bottom: 5px;
+                padding: 5px;
+                height: 65px;
+                border-radius: 5px;
+                width: 231px;
+                display: flex;
+                text-align: center;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                align-items: center !important;
+                    }
+                    
+                    
+                      @media only screen and (width:360px) and (height: 740px){
+            #footer {
+                height: 47vh !important;
+                margin-top: 58%;
+            }
+        }
+        
+        
+          @media only screen and (width:375px) and (height:667px){
+            #footer {
+                height: 45vh !important;
+                margin-top: 58%;
             }
         }
     </style>
@@ -181,7 +260,7 @@
 
     <div class="container">
         <div id="content_image" style="height: 434px;position: relative;    margin-top: 10%;">
-            <img src="image/background_kem.jpg" class="img-fluid" alt="Responsive image">
+            <img src="image/background_kem.webp" class="img-fluid" alt="Responsive image">
 
             <div id="navbar_service" style="position: absolute;height:69px;width:100%;background-color:white;top: 128%;border:1px solid #ccc;"
                 class="d-flex align-items-center justify-content-around rounded">
@@ -222,52 +301,51 @@
 
 
 
-    <div class="container" id="product_content">
+  <div class="container" id="product_content">
         <div id="top_product" class="text-center">
             <h3>SẢN PHẨM HOT</h3>
             <img src="https://bizweb.dktcdn.net/100/383/807/themes/848676/assets/bg_title.png?1656316409595" alt="">
         </div>
 
         <br>
-        <div id="product_hot">
+      <div id="product_hot">
             <div class="row">
                 <div class="col-sm-6 col-lg-3  d-flex justify-content-center mb-4" style="width: 50%;height: 50%;">
                     <div class="card" style="width: 18rem;" data-aos="flip-left" data-aos="flip-down">
-                        <img src="image/cốt ủ 150g.jpg" alt="..." class="img-thumbnail">
+                        <img src="image/TN150.jpg" alt="..." class="img-thumbnail">
                         <div class="card-body font-weight-bold">
                             <p class="card-text">Kem Body Cốt Ủ - 150gr</p>
-                            <br>
-                            <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center" id="price"> 160.000 đ</span>
+                            <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center" id="price"> 190.000 đ</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-lg-3  d-flex justify-content-center mb-4" style="width: 50%;height: 50%;">
                     <div class="card" style="width: 18rem;" data-aos="flip-left" data-aos="flip-down">
-                        <img src="image/combo 2 tuần.jpg" alt="..." class="img-thumbnail">
+                        <img src="image/CBTU.jpg" alt="..." class="img-thumbnail">
                         <div class="card-body font-weight-bold">
-                            <p class="card-text">Combo N&Đ 2 Tuần Siêu Trắng Sáng</p>
-                            <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center" id="price"> 290.000 đ</span>
+                            <p class="card-text">Combo Ủ & Dưỡng - 2 Tuần</p>
+                            <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center" id="price"> 410.000 đ</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-lg-3  d-flex justify-content-center mb-4" style="width: 50%;height: 50%;">
                     <div class="card" style="width: 18rem;" data-aos="flip-left" data-aos="flip-down">
-                        <img src="image/cốt ủ 350g.jpg" alt="..." class="img-thumbnail">
+                        <img src="image/TN350.jpg" alt="..." class="img-thumbnail">
                         <div class="card-body font-weight-bold">
                             <p class="card-text font-weight-bold">Kem Body Cốt Ủ - 350gr</p>
-                            <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center" id="price"> 385.000 đ</span>
+                            <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center" id="price"> 415.000 đ</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-lg-3  d-flex justify-content-center mb-4" style="width: 50%;height: 50%;">
                     <div class="card" style="width: 18rem;" data-aos="flip-left" data-aos="flip-down">
-                        <img src="image/combo tháng.jpg" alt="..." class="img-thumbnail">
+                        <img src="image/CBTH.jpg" alt="..." class="img-thumbnail">
                         <div class="card-body font-weight-bold">
-                            <p class="card-text">Kem Body Cốt Ủ - 1kg</p>
-                            <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center" id="price"> 570.000 đ</span>
+                            <p class="card-text"> Combo Kem Ủ & Dưỡng - 1 Tháng </p>
+                            <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center" id="price"> 790.000đ</span>
                         </div>
                     </div>
                 </div>
@@ -285,24 +363,24 @@
         <br>
 
 
-        <h5 style="margin:0 auto;margin-bottom: 10px;">SẢN PHẨM CỐT Ủ MẠNH</h5>
+        <h5 style="margin:0 auto;margin-bottom: 10px;" class="text-primary fw-bold">SẢN PHẨM CỐT Ủ MẠNH</h5>
         <div class="row">
             <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
                 <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                    <img src="image/cốt ủ 150g.jpg" alt="..." class="img-thumbnailCombo N&Đ 1 tháng Siêu Trắng Sáng">
+                    <img src="image/TN150.jpg" alt="..." class="img-thumbnailCombo N&Đ 1 tháng Siêu Trắng Sáng">
                     <div class="card-body font-weight-bold">
                         <p class="card-text">Kem Body Cốt Ủ - 150gr</p>
-                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 160.000 đ</span>
+                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 205.000 đ</span>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
                 <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                    <img src="image/cốt ủ 350g.jpg" alt="..." class="img-thumbnail">
+                    <img src="image/TN350.jpg" alt="..." class="img-thumbnail">
                     <div class="card-body font-weight-bold">
                         <p class="card-text">Kem Body Cốt Ủ - 350gr</p>
-                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 385.000 đ</span>
+                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 415.000đ</span>
                     </div>
                 </div>
             </div>
@@ -313,84 +391,118 @@
 
                     <div class="card-body font-weight-bold">
                         <p class="card-text">Kem Body Cốt Ủ - 500gr</p>
-                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 505.000 đ</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
-                <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                    <img src="image/cốt ủ 500g.jpg" alt="..." class="img-thumbnail">
-                    <div class="card-body font-weight-bold">
-                        <p class="card-text">Kem Body Cốt Ủ - 1kg</p>
-                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 570.000 đ</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h5 style="margin:0 auto;margin-bottom: 10px;">SẢN PHẨM DƯỠNG SÁNG</h5>
-        <div class="row">
-            <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
-                <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                    <img src="image/dưỡng 200 g.jpg" alt="..." class="img-thumbnail">
-                    <div class="card-body font-weight-bold">
-                        <p class="card-text">Kem Body Dưỡng Sáng Siêu Cấp - 200gr</p>
-                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 120.000 đ</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
-                <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                    <img src="image/hinhp2.jpg" alt="..." class="img-thumbnail">
-                    <div class="card-body font-weight-bold">
-                        <p class="card-text">Dưỡng sáng 320g</p>
                         <br>
-                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 120.000 đ</span>
+                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 560.000 đ</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
+                <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <img src="image/1KG.jpg" alt="..." class="img-thumbnail">
+                    <div class="card-body font-weight-bold">
+                        <p class="card-text">Kem Body Cốt Ủ - 1kg (tặng áo ủ kem)</p>
+                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 1.100.000đ</span>
+                    </div>
+                </div>
+            </div>
+            
+        <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
+                <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <img src="image/90.jpg" alt="..." class="img-thumbnail">
+
+                    <div class="card-body font-weight-bold">
+                        <p class="card-text">Kem Body Cốt Thái 90% - 125gr</p>
+                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 225.000đ</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
+                <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <img src="image/90.jpg" alt="..." class="img-thumbnail">
+                    <div class="card-body font-weight-bold">
+                        <p class="card-text">Kem Body Cốt Thái 90% - 350gr</p>
+                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 625.000đ</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <h5 style="margin:0 auto;margin-bottom: 10px;">SẢN PHẨM PHỐI HỢP</h5>
+        
+        <h5 style="margin:0 auto;margin-bottom: 10px;" class="text-primary fw-bold">SẢN PHẨM DƯỠNG SÁNG</h5>
         <div class="row">
             <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
                 <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                    <img src="image/combo 2 tuần.jpg" alt="..." class="img-thumbnail">
+                    <img src="image/TNDN.jpg" alt="..." class="img-thumbnail">
                     <div class="card-body font-weight-bold">
-                        <p class="card-text">Combo N&Đ 2 Tuần Siêu Trắng Sáng</p>
-                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 290.000 đ</span>
+                        <p class="card-text">Kem Body Dưỡng Trắng Mịn - 200gr</p>
+                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 225.000 đ</span>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
                 <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                    <img src="image/combo tháng.jpg" alt="..." class="img-thumbnail">
+                    <img src="image/TNDL.jpg" alt="..." class="img-thumbnail">
                     <div class="card-body font-weight-bold">
-                        <p class="card-text">Combo N&Đ 1 tháng Siêu Trắng Sáng</p>
-                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 570.000 đ</span>
+                        <p class="card-text">Kem Body Dưỡng Trắng Mịn -  320g</p>
+                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 395.000đ</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <h5 style="margin:0 auto;margin-bottom: 10px;">SẢN PHẨM KHÁC</h5>
+        <h5 style="margin:0 auto;margin-bottom: 10px;" class="text-primary fw-bold">SẢN PHẨM PHỐI HỢP</h5>
+        <div class="row">
+            <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
+                <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <img src="image/CBTU.jpg" alt="..." class="img-thumbnail">
+                    <div class="card-body font-weight-bold">
+                        <p class="card-text">Combo Kem Ủ Dưỡng - 2 Tuần</p>
+                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 410.000đ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
+                <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <img src="image/CBTH.jpg" alt="..." class="img-thumbnail">
+                    <div class="card-body font-weight-bold">
+                        <p class="card-text">Combo Kem ủ Dưỡng - 1 Tháng</p>
+                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 790.000đ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h5 style="margin:0 auto;margin-bottom: 10px;" class="text-primary fw-bold">SẢN PHẨM KHÁC</h5>
         <div class="row">
             <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
                 <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                     <img src="image/hinhp1.jpg" alt="..." class="img-thumbnail">
                     <div class="card-body font-weight-bold">
                         <p class="card-text">Áo Ủ Kem Dày Dặn</p>
-                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 85.000 đ</span>
+                        <br>
+                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 99.000 đ</span>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
                 <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                    <img src="image/muối bò.jpg" alt="..." class="img-thumbnail">
+                    <img src="image/TNB.PNG" alt="..." class="img-thumbnail">
                     <div class="card-body font-weight-bold">
-                        <p class="card-text">Muối Tắm Con Bò</p>
-                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 85.000 đ</span>
+                        <p class="card-text">Set Ủ Tắm Bột Đậu Đỏ & Dầu Oliu</p>
+                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 99.000 đ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!--/*Dầu Oliu*/-->
+             <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4" style="width:50%;height:50%;">
+                <div class="card" style="width: 18rem;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <img src="image/dauoliu.PNG" alt="..." class="img-thumbnail">
+                    <div class="card-body font-weight-bold">
+                        <p class="card-text">Dầu OLIU</p>
+                        <span class="text-muted">Giá bán: </span> <span class="card-text text-warning text-center"> 99.000đ</span>
                     </div>
                 </div>
             </div>
@@ -406,6 +518,7 @@
                         <h1>Tú Như Shop Kem</h1>
                         <p><i class="fa-solid fa-location-dot text-warning"></i> &nbsp;&nbsp;Địa chỉ : Hẻm liên tổ 3-4, Nguyễn Văn Cừ, An Khánh, Ninh Kiều, Cần Thơ</p>
                         <p><i class="fa-solid fa-phone text-warning"></i>&nbsp;&nbsp;SĐT: 0913.822.841</p>
+                        <i class="fa-solid fa-truck-fast  text-warning"></i>&nbsp;&nbsp;Freeship toàn quốc</p>
                     </div>
                 </div>
                 <div class="col col-sm" style="margin-left: 358px;" id="icon_change">
@@ -428,7 +541,10 @@
                             </a>
                         </div>
                         <div class="col mb-5 font-weight-bold">
-                            <img src="image/zalo.png" alt="..." width="50px" height="50px" class="img_icon">
+                             <a href="https://zalo.me/0913822841" style="text-decoration:none;">
+                                 <img src="image/zalo.png" alt="..." width="50px" height="50px" class="img_icon">
+                            </a>
+                           
                         </div>
                     </div>
 

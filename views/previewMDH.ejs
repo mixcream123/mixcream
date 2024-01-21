@@ -36,7 +36,7 @@
         }
 
         html {
-            overflow-x: hidden;
+            overflow-x: hidden !important;
         }
     </style>
 </head>
@@ -58,43 +58,44 @@
                                             <button type="button" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Trở lại</button>
                                         </a>
                                     </div>
-                                        <div class="col-sm-8 text-left">
-                                            <h2><b>Xem Trước Thông Tin Upload</b></h2>
-                                            <% if(typeof(result !='undefined' )){%>
-                                                <h3 class="text-success">(<%= JSON.parse(result).length %> đơn)</h3>
-                                                <% }%>
-                                        </div>
-                                        <div class="col-sm-2 text-left">
-                                                <form action="/admin/addAllContent" method="POST">
-                                                    <input type="text" value="<%= result ;%>" name="content_upload" style="opacity:0;">
-                                                    <button type="submit" class="btn btn-info" id="addAllContent"> Thêm tất cả</button>
-                                                </form>
-                                        </div>
+                                   <div class="col-sm-8 text-left">
+                                        <h2><b>Xem Trước Thông Tin Upload</b></h2>
+                                        <%_ if(typeof result !== "undefined"){ _%>
+                                            <h3 class="text-success">(<%= JSON.parse(result).length %> đơn)</h3>
+                                        <%_ } _%>
+                                    </div>
+                                    <div class="col-sm-2 text-left">
+                                            <form action="/admin/addAllContent" method="POST">
+                                        
+                                             <input type="text" value="<%= result ;%>" name="content_upload" style="opacity:0;">
+                                                <button type="submit" class="btn btn-info" id="addAllContent"> Thêm tất cả</button>
+                                            </form>
                                     </div>
                                 </div>
-                                <br>
-                                <table class="table table-striped">
-                                    <thead>
+                            </div>
+                            <br>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">STT</th>
+                                        <th scope="col">Mã Đơn Hàng</th>
+                                        <th scope="col">Tên Đơn Hàng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   <%_ if(typeof result !== "undefined"){JSON.parse(result).forEach((item, index)=>{%>
                                         <tr>
-                                            <th scope="col">STT</th>
-                                            <th scope="col">Mã Đơn Hàng</th>
-                                            <th scope="col">Tên Đơn Hàng</th>
+                                            <td>
+                                                <%= index+1 %>
+                                            </td>
+                                            <td>
+                                                <%= item.id_product %>
+                                            </td>
+                                            <td>
+                                                <%= item.name_product %>
+                                            </td>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                        <% if(typeof(result) !='undefined' ){ JSON.parse(result).forEach((item, index)=>{%>
-                                            <tr>
-                                                <td>
-                                                    <%= index+1 %>
-                                                </td>
-                                                <td>
-                                                    <%= item.id_product %>
-                                                </td>
-                                                <td>
-                                                    <%= item.name_product %>
-                                                </td>
-                                            </tr>
-                                            <% })}%>
+                                        <% })}%>
                                 </tbody>
                             </table>
                         </div>
@@ -111,6 +112,7 @@
         window.addEventListener("load", function () {
             loader.style.display = "none";
         })
+
 
 
     </script>
